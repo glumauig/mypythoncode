@@ -1,0 +1,37 @@
+set system syslog user * any emergency
+set system syslog file messages any notice
+set system syslog file messages authorization info
+set system syslog file interactive-commands interactive-commands any
+set chassis aggregated-devices ethernet device-count 10
+set interfaces ge-0/0/0 description to-cr1
+set interfaces ge-0/0/0 unit 0 family inet address 10.110.255.1/30
+set interfaces ge-0/0/1 description to-jr2
+set interfaces ge-0/0/1 gigether-options 802.3ad ae1
+set interfaces ge-0/0/2 description to-jr2
+set interfaces ge-0/0/2 gigether-options 802.3ad ae1
+set interfaces ae1 description jr2
+set interfaces ae1 vlan-tagging
+set interfaces ae1 aggregated-ether-options lacp active
+set interfaces ae1 aggregated-ether-options lacp periodic fast
+set interfaces ae1 unit 10 vlan-id 10
+set interfaces ae1 unit 10 family inet address 10.10.120.1/30
+set interfaces em0 unit 0 family inet address 10.255.255.11/24
+set interfaces lo0 unit 0 family inet address 10.11.11.1/32
+set snmp v3 usm local-engine user JLAB authentication-none
+set snmp v3 vacm security-to-group security-model usm security-name JLAB group GRPJLAB
+set snmp v3 vacm access group GRPJLAB default-context-prefix security-model any security-level none read-view SNMPVIEW
+set snmp v3 vacm access group GRPJLAB default-context-prefix security-model any security-level none write-view SNMPVIEW
+set snmp v3 vacm access group GRPJLAB default-context-prefix security-model any security-level authentication read-view SNMPVIEW
+set snmp v3 vacm access group GRPJLAB default-context-prefix security-model any security-level authentication write-view SNMPVIEW
+set snmp v3 vacm access group GRPJLAB default-context-prefix security-model any security-level privacy read-view SNMPVIEW
+set snmp v3 vacm access group GRPJLAB default-context-prefix security-model any security-level privacy write-view SNMPVIEW
+set snmp v3 vacm access group GRPJLAB context-prefix mgmt security-model usm security-level none read-view SNMPVIEW
+set snmp v3 vacm access group GRPJLAB context-prefix mgmt security-model usm security-level none write-view SNMPVIEW
+set snmp engine-id use-default-ip-address
+set snmp view SNMPVIEW oid .1 include
+set routing-options static route 192.168.1.0/24 next-hop 10.255.255.1
+set routing-options autonomous-system 61100
+set protocols bgp group external-peers type external
+set protocols bgp group external-peers peer-as 61200
+set protocols bgp group external-peers neighbor 10.10.120.2
+set protocols ospf area 0.0.0.0 interface ge-0/0/0.0

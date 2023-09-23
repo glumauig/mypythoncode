@@ -3,7 +3,7 @@ from datetime import datetime
 
 juniper_mx = {
     'device_type': 'juniper_junos',
-    'host': '10.255.255.21',
+    'host': '10.255.255.11',
     'username': 'admin',
     'password': 'P@ssw0rd',
 }
@@ -11,7 +11,7 @@ juniper_mx = {
 net_connect = ConnectHandler(**juniper_mx)
 #output = net_connect.send_command('show configuration | display set | no-more')
 
-with open('config_file/jr2.txt','r') as f:
+with open('config_file/JR1_config.txt','r') as f:
     config_commands = f.readlines()
     Tstart = datetime.now()
     config_output = net_connect.send_config_set(config_commands, exit_config_mode=False)
