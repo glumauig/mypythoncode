@@ -1,0 +1,35 @@
+Host cr1.lab.local
+	Hostname 10.255.255.12
+	User admin
+	HostKeyAlgorithms  +ssh-rsa 
+	KexAlgorithms +diffie-hellman-group1-sha1
+
+Host jr1.lab.local
+        Hostname 10.255.255.11
+        User admin
+        HostKeyAlgorithms  +ssh-rsa
+        KexAlgorithms +diffie-hellman-group1-sha1
+
+Host cr2.lab.local
+        Hostname 10.255.255.22
+        User admin
+        HostKeyAlgorithms  +ssh-rsa
+        KexAlgorithms +diffie-hellman-group1-sha1
+
+Host cr3.lab.local
+        Hostname 10.255.255.32
+        User admin
+        HostKeyAlgorithms  +ssh-rsa
+        KexAlgorithms +diffie-hellman-group1-sha1
+
+Host jr3.lab.local
+        Hostname 10.255.255.31
+        User admin
+        HostKeyAlgorithms  +ssh-rsa
+        KexAlgorithms +diffie-hellman-group1-sha1
+		
+Host jr2.lab.local
+        Hostname 10.255.255.21
+        User admin
+        HostKeyAlgorithms  +ssh-rsa
+        KexAlgorithms +diffie-hellman-group1-sha1

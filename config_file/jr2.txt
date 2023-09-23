@@ -1,0 +1,32 @@
+set interfaces lo0 unit 0 family inet address 10.11.11.2/32
+set interfaces ge-0/0/0 description "to-cr2"
+set interfaces ge-0/0/0 unit 0 family inet address 10.120.255.1/30
+set interfaces ge-0/0/1 description "to-jr1"
+set interfaces ge-0/0/1 gigether-options 802.3ad ae1
+set interfaces ge-0/0/2 description "to-jr1"
+set interfaces ge-0/0/2 gigether-options 802.3ad ae1
+set interfaces ge-0/0/3 description "to-jr3"
+set interfaces ge-0/0/3 gigether-options 802.3ad ae2
+set interfaces ge-0/0/4 description "to-jr3"
+set interfaces ge-0/0/4 gigether-options 802.3ad ae2
+
+
+set interfaces ae1 description "to-jr1"
+set interfaces ae1 vlan-tagging
+set interfaces ae1 aggregated-ether-options lacp active
+set interfaces ae1 aggregated-ether-options lacp periodic fast
+set interfaces ae1 unit 10 vlan-id 10
+set interfaces ae1 unit 10 family inet address 10.10.120.2/30
+
+set interfaces ae2 description "to-jr1"
+set interfaces ae2 vlan-tagging
+set interfaces ae2 aggregated-ether-options lacp active
+set interfaces ae2 aggregated-ether-options lacp periodic fast
+set interfaces ae2 unit 10 vlan-id 11
+set interfaces ae2 unit 10 family inet address 10.10.230.2/30
+
+set protocols rip group RIPJ neighbor ge-0/0/0.0
+set policy-options policy-statement RIPJ-POLICY term 1 from protocol rip
+set policy-options policy-statement RIPJ-POLICY term 1 from protocol direct
+set policy-options policy-statement RIPJ-POLICY term 1 from protocol accept
+set protocols rip group RIPJ export RIPJ-POLICY

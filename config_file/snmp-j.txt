@@ -1,0 +1,12 @@
+delete snmp v3
+set snmp v3 usm local-engine user JLAB authentication-none
+set snmp v3 vacm security-to-group security-model usm security-name JLAB group GRPJLAB
+set snmp v3 vacm access group GRPJLAB default-context-prefix security-model any security-level none read-view SNMPVIEW
+set snmp v3 vacm access group GRPJLAB default-context-prefix security-model any security-level none write-view SNMPVIEW
+set snmp v3 vacm access group GRPJLAB default-context-prefix security-model any security-level authentication read-view SNMPVIEW
+set snmp v3 vacm access group GRPJLAB default-context-prefix security-model any security-level authentication write-view SNMPVIEW
+set snmp v3 vacm access group GRPJLAB default-context-prefix security-model any security-level privacy read-view SNMPVIEW
+set snmp v3 vacm access group GRPJLAB default-context-prefix security-model any security-level privacy write-view SNMPVIEW
+set snmp v3 vacm access group GRPJLAB context-prefix mgmt security-model usm security-level none read-view SNMPVIEW
+set snmp v3 vacm access group GRPJLAB context-prefix mgmt security-model usm security-level none write-view SNMPVIEW
+set snmp engine-id use-default-ip-address

@@ -1,0 +1,20 @@
+interface e0/0
+	ip add 10.120.255.2 255.255.255.252
+	no shutdown
+interface lo0
+	ip add 10.111.111.2 255.255.255.255
+	no shutdown
+interface lo11
+	ip add 172.16.120.1 255.255.255.0
+	no shutdown
+interface lo12
+	ip add 172.16.121.1 255.255.255.0
+	no shutdown
+interface lo13
+	ip add 172.16.122.1 255.255.255.0
+	no shutdown
+	
+router rip
+	version 2
+	network 10.0.0.0
+	network 172.16.0.0

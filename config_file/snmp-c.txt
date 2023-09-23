@@ -1,0 +1,3 @@
+no snmp-server user JLAB
+snmp-server user JLAB GRPJLAB v3
+snmp-server group GRPJLAB v3 noauth

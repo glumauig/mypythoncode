@@ -1,0 +1,17 @@
+interface e0/0
+	ip add 10.130.255.2 255.255.255.252
+	no shutdown
+interface lo0
+	ip add 10.111.111.3 255.255.255.255
+	no shutdown
+interface lo11
+	ip add 172.16.130.1 255.255.255.0
+	no shutdown
+interface lo12
+	ip add 172.16.131.1 255.255.255.0
+	no shutdown
+interface lo13
+	ip add 172.16.132.1 255.255.255.0
+	no shutdown
+end
+write mem
