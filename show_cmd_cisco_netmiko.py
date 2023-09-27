@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from netmiko import ConnectHandler
 
 cisco_iol = {
