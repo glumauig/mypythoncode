@@ -4,7 +4,7 @@ from datetime import datetime
 cisco_mgmt_ip={
 '10.255.255.12',
 '10.255.255.22',
-'10.255.255.32'
+#'10.255.255.32'
 }
 
 
